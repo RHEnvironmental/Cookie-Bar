@@ -1,13 +1,11 @@
 import { h, render, Component } from 'preact';
 
+import CookieBar from "./CookieBar";
+
 class App extends Component {
     render() {
-        return (
-            <div>
-                <h1>Hello, world!</h1>
-            </div>
-        )
+        return <CookieBar />
     }
 }
 
-render(<App />, document.getElementById('container'));
+render(<App />, document.body);
