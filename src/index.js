@@ -4,7 +4,11 @@ import CookieBar from "./CookieBar";
 
 class App extends Component {
     render() {
-        return <CookieBar />
+        const primaryColor = window.cookieBarSettings ? window.cookieBarSettings.primaryColor : '#2D5AB4';
+
+        return <CookieBar
+            primaryColor={primaryColor}
+        />
     }
 }
 
