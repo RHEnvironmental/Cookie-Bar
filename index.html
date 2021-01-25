@@ -1,13 +1,29 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <title>RHE Cookie Bar</title>
 </head>
 <body>
     <h1>Cookie bar dev page</h1>
     <script>
+        const ESSENTIAL = 1,
+            PERFORMANCE = 2,
+            ANALYTICS = 3;
+
         window.cookieBarSettings = {
-            primaryColor: '#C035E3'
+            primaryColor: '#C035E3',
+            cookies: [
+                {
+                    category: ESSENTIAL,
+                    name: 'PHP Session ID',
+                    description: 'This cookie is native to PHP applications. The cookie is used to store and indentify a users’ unique session ID for the purposes of managing user session on the website. The cooke is a session cookies and is deleted when all the browser windows are closed',
+                },
+                {
+                    category: ANALYTICS,
+                    name: 'Google Analytics',
+                    description: 'These cookies are used to track your activity on our website to help us give you a better browsing experience.'
+                }
+            ]
         }
     </script>
     <script src="lib/bundle.js"></script>
