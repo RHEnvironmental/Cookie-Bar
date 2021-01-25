@@ -1,6 +1,7 @@
 import { h } from 'preact';
 
 import Button from '../Button';
+import CloseButton from "../CloseButton";
 
 import css from './styles.scss';
 
@@ -8,7 +9,7 @@ const Modal = props => {
     return (
         <div class={css.modal_container}>
             <div className={css.modal_section}>
-                <button onClick={props.toggleShowModal}>close</button>
+                <CloseButton toggleShowModal={props.toggleShowModal} primaryColor={props.primaryColor} />
             </div>
             <div className={css.modal_section}>
                 <h2 style={{color: props.primaryColor}}>Our use of cookies</h2>
