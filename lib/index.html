@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            font-family: Arial, Helvetica neue, 'sans-serif';
+        }
+    </style>
+    <title>RHE Cookie Bar</title>
+</head>
+<body>
+    <h1>Cookie bar dev page</h1>
+    <script>
+        window.cookieBarSettings = {
+            primaryColor: '#C035E3',
+            cookies: [
+                {
+                    category: 'Essential Website Cookies',
+                    categoryDescription: 'These cookies are strictly necessary to provide you with services available through our Sites and to use some of its features, such as access to secure areas. Because these cookies are strictly necessary to deliver the Sites, you cannot refuse them without impacting how our Sites function.',
+                    categoryCookies: [
+                        {
+                            name: 'PHP Session ID',
+                            description: 'This cookie is native to PHP applications. The cookie is used to store and indentify a users’ unique session ID for the purposes of managing user session on the website. The cooke is a session cookies and is deleted when all the browser windows are closed',
+                        }
+                    ]
+
+                },
+                {
+                    category: 'Analytics Cookies',
+                    categoryDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse placerat risus pretium lobortis aliquet. Ut rutrum faucibus sem, vitae aliquet lectus.',
+                    categoryCookies: [
+                        {
+                            name: 'Google Analytics',
+                            description: 'These cookies are used to track your activity on our website to help us give you a better browsing experience.'
+                        },
+                        {
+                            name: 'Google Tag Manager',
+                            description: 'A description describing google tag manager or something bla bla bla this can be a log longer sentence.'
+                        }
+                    ]
+                },
+            ]
+        }
+    </script>
+    <script src="bundle.js"></script>
+</body>
+</html>

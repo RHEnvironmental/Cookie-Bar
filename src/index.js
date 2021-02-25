@@ -1,4 +1,5 @@
 import { h, render, Component } from 'preact';
+import 'core-js';
 
 import CookieBar from "./CookieBar";
 

@@ -1,20 +1,23 @@
-.closeLine{
+.closeLine {
   position: relative;
   float: right;
   padding: 6px;
   border: none;
   width: 40px;
   height: 40px;
-  div{
+
+  div {
     position: absolute;
     width: 30px;
     border-bottom: 2px solid #fff;
     top: 50%;
     left: 50%;
-    &:first-of-type{
+
+    &:first-of-type {
       transform: translate(-50%) rotate(45deg);
     }
-    &:last-of-type{
+
+    &:last-of-type {
       transform: translate(-50%) rotate(- 45deg);
     }
   }

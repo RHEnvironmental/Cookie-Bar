@@ -2,6 +2,8 @@ import { h } from 'preact';
 
 import Button from '../Button';
 import CloseButton from "../CloseButton";
+import DropdownContainer from "../DropdownContainer";
+import DropdownItem from "../DropdownItem";
 
 import css from './styles.scss';
 
@@ -18,11 +20,14 @@ const Modal = props => {
             </div>
             <div className={css.modal_section}>
                 <h2 style={{color: props.primaryColor}}>Manage Consent Preferences</h2>
-                <ul>
+                <DropdownContainer>
                     {window.cookieBarSettings.cookies.map(cookie => (
-                        <li>{cookie.name}</li>
+                        <DropdownItem
+                            category={cookie.category}
+                            categoryCookies={cookie.categoryCookies}
+                        />
                     ))}
-                </ul>
+                </DropdownContainer>
             </div>
             <div className={css.modal_section}>
                 <Button cancel>Reject All</Button>
