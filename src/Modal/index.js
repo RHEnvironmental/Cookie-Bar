@@ -9,7 +9,7 @@ import css from './styles.scss';
 
 const Modal = props => {
     return (
-        <div class={css.modal_container}>
+        <div className={css.modal_container}>
             <div className={css.modal_section}>
                 <CloseButton toggleShowModal={props.toggleShowModal} primaryColor={props.primaryColor} />
             </div>
@@ -23,15 +23,19 @@ const Modal = props => {
                 <DropdownContainer>
                     {window.cookieBarSettings.cookies.map(cookie => (
                         <DropdownItem
+                            primaryColor={props.primaryColor}
                             category={cookie.category}
+                            categoryDescription={cookie.categoryDescription}
                             categoryCookies={cookie.categoryCookies}
                         />
                     ))}
                 </DropdownContainer>
             </div>
             <div className={css.modal_section}>
-                <Button cancel>Reject All</Button>
-                <Button primaryColor={props.primaryColor}>Save and Exit</Button>
+                <div className={css.footer_buttons_container}>
+                    <Button cancel>Reject All</Button>
+                    <Button primaryColor={props.primaryColor}>Save and Exit</Button>
+                </div>
             </div>
         </div>
     )

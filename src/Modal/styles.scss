@@ -1,3 +1,5 @@
+@import '../../scss/variables';
+
 .modal_container{
   position: fixed;
   top: 50%;
@@ -13,9 +15,14 @@
 }
 
 .modal_section{
-  padding: 12px;
+  padding: $sectionPadding;
   border-bottom: 2px solid #D2D2D2;
+  overflow: hidden;
   &:last-child {
     border-bottom: none;
   }
+}
+
+.footer_buttons_container button:first-of-type{
+  margin-right: 12px;
 }

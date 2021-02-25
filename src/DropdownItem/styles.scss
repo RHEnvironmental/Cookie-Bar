@@ -1,4 +1,6 @@
-$triangleSize: 7px;
+@import '../../scss/variables';
+
+$triangleSize: 6px;
 
 .dropdown_item_title_container {
   display: flex;
@@ -6,9 +8,10 @@ $triangleSize: 7px;
 
 .arrow_container {
   position: relative;
-  flex: 1;
+  //flex: 1;
+  width: 50px - $sectionPadding;
   .arrow {
-    margin: 5px 0 0 5px;
+    margin: 19px 0 0 5px;
     width: 0;
     height: 0;
     border-left: $triangleSize solid transparent;
@@ -17,18 +20,39 @@ $triangleSize: 7px;
   }
 }
 
-.dropdown_item_title{
+.dropdown_item_title {
   flex: 5;
-  width: 90%;
-  float: left;
   h3{
-    margin: 0;
+    margin: 12px 0 12px 0;
   }
 }
 
 .category_toggle {
   position: relative;
   flex: 1;
+  padding-top: 8px;
+  p.always_active {
+    font-weight: bold;
+    text-align: right;
+    margin: 7px 0 0 0;
+  }
+  .toggle{
+    float: right;
+  }
+}
+
+.dropdown_item_content {
+  background-color: #F5F6F8;
+  margin: {
+    top: 0;
+    right: -$sectionPadding;
+    bottom: 0;
+    left: -$sectionPadding;
+  }
+  padding: 18px 50px;
+  p {
+    margin-top: 0;
+  }
 }
 
 table.cookie_table {

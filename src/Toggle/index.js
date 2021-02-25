@@ -12,11 +12,11 @@ const Toggle = props => {
             <style>
                 {`\
                     input:checked + .${css.slider} {\
-                        background-color: ${window.cookieBarSettings.primaryColor};\
+                        background-color: ${props.primaryColor};\
                     }\
                     \
                     input:focus + .${css.slider} {\
-                        box-shadow: 0 0 1px ${window.cookieBarSettings.primaryColor};\
+                        box-shadow: 0 0 1px ${props.primaryColor};\
                     }\
                 `}
             </style>
