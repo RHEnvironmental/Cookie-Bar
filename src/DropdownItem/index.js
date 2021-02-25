@@ -7,16 +7,26 @@ import css from "./styles.scss";
 class DropdownItem extends Component {
     constructor() {
         super();
+
+        this.state = {
+            showItemContent: false
+        }
+    }
+
+    _toggleShowItemContent() {
+        this.setState({
+            showItemContent: !this.state.showItemContent
+        })
     }
 
     render() {
         return (
             <div className={css.dropdown_item}>
                 <div className={css.dropdown_item_title_container}>
-                    <div className={css.arrow_container}>
-                        <div className={css.arrow}></div>
+                    <div className={css.arrow_container} onClick={this._toggleShowItemContent.bind(this)}>
+                        { this.state.showItemContent ? <div className={css.arrow_up}></div> : <div className={css.arrow_down}></div> }
                     </div>
-                    <div className={css.dropdown_item_title}>
+                    <div className={css.dropdown_item_title} onClick={this._toggleShowItemContent.bind(this)}>
                         <h3>{this.props.category}</h3>
                     </div>
                     <div className={css.category_toggle}>
@@ -30,27 +40,29 @@ class DropdownItem extends Component {
                         )}
                     </div>
                 </div>
-                <div className={css.dropdown_item_content}>
-                    <p>
-                        {this.props.categoryDescription}
-                    </p>
-                    <table className={css.cookie_table}>
-                        <tr>
-                            <th>
-                                Cookie
-                            </th>
-                            <th>
-                                Description
-                            </th>
-                        </tr>
-                        {this.props.categoryCookies.map(cookie => (
+                {this.state.showItemContent && (
+                    <div className={css.dropdown_item_content}>
+                        <p>
+                            {this.props.categoryDescription}
+                        </p>
+                        <table className={css.cookie_table}>
                             <tr>
-                                <td>{cookie.name}</td>
-                                <td>{cookie.description}</td>
+                                <th>
+                                    Cookie
+                                </th>
+                                <th>
+                                    Description
+                                </th>
                             </tr>
-                        ))}
-                    </table>
-                </div>
+                            {this.props.categoryCookies.map(cookie => (
+                                <tr>
+                                    <td>{cookie.name}</td>
+                                    <td>{cookie.description}</td>
+                                </tr>
+                            ))}
+                        </table>
+                    </div>
+                )}
             </div>
         )
     }

@@ -8,22 +8,32 @@ $triangleSize: 6px;
 
 .arrow_container {
   position: relative;
-  //flex: 1;
   width: 50px - $sectionPadding;
-  .arrow {
-    margin: 19px 0 0 5px;
+  cursor: pointer;
+  .arrow_down {
+    margin: 19px 0 0 9px;
     width: 0;
     height: 0;
     border-left: $triangleSize solid transparent;
     border-right: $triangleSize solid transparent;
     border-top: $triangleSize solid #000;
   }
+
+  .arrow_up {
+    margin: 19px 0 0 9px;
+    width: 0;
+    height: 0;
+    border-left: $triangleSize solid transparent;
+    border-right: $triangleSize solid transparent;
+    border-bottom: $triangleSize solid #000;
+  }
 }
 
 .dropdown_item_title {
   flex: 5;
+  cursor: pointer;
   h3{
-    margin: 12px 0 12px 0;
+    margin: $sectionPadding 0;
   }
 }
 
