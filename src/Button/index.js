@@ -38,7 +38,13 @@ const Button = props => {
     }
 
     return (
-        <button className={`${css.button} ${setClasses()}`} style={inlineStyles()} onClick={props.onClick}>{props.children}</button>
+        <button
+            className={`${css.button} ${setClasses()}`}
+            style={inlineStyles()}
+            onClick={props.onClick}
+        >
+            {props.children}
+        </button>
     )
 }
 

@@ -19,6 +19,11 @@ class DropdownItem extends Component {
         })
     }
 
+    _handleChange(e) {
+        let isChecked = e.target.checked;
+        // Do stuff here for cookie category being activated / de-activated.
+    }
+
     render() {
         return (
             <div className={css.dropdown_item}>
@@ -36,6 +41,7 @@ class DropdownItem extends Component {
                             <Toggle
                                 className={css.toggle}
                                 primaryColor={this.props.primaryColor}
+                                handleChange={e=> this._handleChange(e)}
                             />
                         )}
                     </div>
