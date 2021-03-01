@@ -1,5 +1,5 @@
 {
-  "name": "RHE Cookie Bar",
+  "name": "rhe-cookie-bar",
   "version": "0.0.1",
   "description": "RHE Cookie bar package",
   "main": "index.js",

@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+import Cookies from 'js-cookie';
 
 import Toggle from "../Toggle";
 
@@ -9,8 +10,20 @@ class DropdownItem extends Component {
         super();
 
         this.state = {
-            showItemContent: false
+            showItemContent: false,
+            categoryAccepted: false,
+            cookieConsent: {}
         }
+    }
+
+    componentDidMount() {
+        const cookieConsent = JSON.parse(Cookies.get('cookie_consent'));
+        const categoryToUpdate = cookieConsent.categories.find(category => category.id === this.props.categoryID);
+
+        this.setState({
+            cookieConsent: cookieConsent,
+            categoryAccepted: categoryToUpdate.accepted
+        })
     }
 
     _toggleShowItemContent() {
@@ -19,9 +32,13 @@ class DropdownItem extends Component {
         })
     }
 
-    _handleChange(e) {
+    _handleChange(e, categoryId) {
         let isChecked = e.target.checked;
         // Do stuff here for cookie category being activated / de-activated.
+        const categoryToUpdate = this.state.cookieConsent.categories.find(category => category.id === categoryId);
+
+        categoryToUpdate.accepted = isChecked;
+        Cookies.set('cookie_consent', JSON.stringify(this.state.cookieConsent));
     }
 
     render() {
@@ -29,19 +46,20 @@ class DropdownItem extends Component {
             <div className={css.dropdown_item}>
                 <div className={css.dropdown_item_title_container}>
                     <div className={css.arrow_container} onClick={this._toggleShowItemContent.bind(this)}>
-                        { this.state.showItemContent ? <div className={css.arrow_up}></div> : <div className={css.arrow_down}></div> }
+                        <div className={this.state.showItemContent ? `${css.arrow} ${css.up}` : `${css.arrow} ${css.down}`}></div>
                     </div>
                     <div className={css.dropdown_item_title} onClick={this._toggleShowItemContent.bind(this)}>
                         <h3>{this.props.category}</h3>
                     </div>
                     <div className={css.category_toggle}>
-                        {this.props.category === 'Essential Website Cookies' ? (
+                        {this.props.categoryID === 1 ? (
                             <p className={css.always_active} style={{color: this.props.primaryColor}}>Always Active</p>
                         ) : (
                             <Toggle
                                 className={css.toggle}
+                                checked={this.state.categoryAccepted}
                                 primaryColor={this.props.primaryColor}
-                                handleChange={e=> this._handleChange(e)}
+                                handleChange={e=> this._handleChange(e, this.props.categoryID)}
                             />
                         )}
                     </div>

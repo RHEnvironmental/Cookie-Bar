@@ -18,6 +18,7 @@ const Toggle = props => {
             <label className={css.switch}>
                 <input
                     type="checkbox"
+                    checked={props.checked}
                     onChange={props.handleChange}
                 />
                 <span className={css.slider}></span>

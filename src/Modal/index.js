@@ -24,6 +24,7 @@ const Modal = props => {
                     {window.cookieBarSettings.cookies.map(cookie => (
                         <DropdownItem
                             primaryColor={props.primaryColor}
+                            categoryID={cookie.categoryID}
                             category={cookie.category}
                             categoryDescription={cookie.categoryDescription}
                             categoryCookies={cookie.categoryCookies}

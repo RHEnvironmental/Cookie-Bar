@@ -10,22 +10,24 @@ $triangleSize: 6px;
   position: relative;
   width: 50px - $sectionPadding;
   cursor: pointer;
-  .arrow_down {
-    margin: 19px 0 0 9px;
+  .arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: -($sectionPadding / 2);
     width: 0;
     height: 0;
-    border-left: $triangleSize solid transparent;
-    border-right: $triangleSize solid transparent;
-    border-top: $triangleSize solid #000;
-  }
-
-  .arrow_up {
-    margin: 19px 0 0 9px;
-    width: 0;
-    height: 0;
-    border-left: $triangleSize solid transparent;
-    border-right: $triangleSize solid transparent;
-    border-bottom: $triangleSize solid #000;
+    &.down {
+      border-left: $triangleSize solid transparent;
+      border-right: $triangleSize solid transparent;
+      border-top: $triangleSize solid #000;
+    }
+    &.up {
+      border-left: $triangleSize solid transparent;
+      border-right: $triangleSize solid transparent;
+      border-bottom: $triangleSize solid #000;
+    }
   }
 }
 
@@ -34,6 +36,11 @@ $triangleSize: 6px;
   cursor: pointer;
   h3{
     margin: $sectionPadding 0;
+    line-height: 1;
+    font: {
+      size: 15px;
+      weight: bold;
+    }
   }
 }
 
@@ -59,7 +66,7 @@ $triangleSize: 6px;
     bottom: 0;
     left: -$sectionPadding;
   }
-  padding: 18px 50px;
+  padding: 10px 50px;
   p {
     margin-top: 0;
   }
@@ -72,7 +79,7 @@ table.cookie_table {
   th, td{
     vertical-align: top;
     text-align: left;
-    padding: 15px;
+    padding: 5px 10px 5px 0;
     border-bottom: 1px solid #D2D2D2;
     &:first-child {
       width: 20%;
@@ -80,5 +87,9 @@ table.cookie_table {
     &:last-child {
       width: 80%;
     }
+  }
+
+  tr:last-child td {
+    border-bottom: none;
   }
 }

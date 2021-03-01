@@ -18,11 +18,27 @@
   padding: $sectionPadding;
   border-bottom: 2px solid #D2D2D2;
   overflow: hidden;
+  h2 {
+    font: {
+      size: 20px;
+      weight: bold;
+    }
+  }
+
+  p {
+    font-size: 15px;
+  }
+
   &:last-child {
     border-bottom: none;
   }
 }
 
-.footer_buttons_container button:first-of-type{
-  margin-right: 12px;
+.footer_buttons_container button {
+  &:first-of-type {
+    margin-right: 12px;
+  }
+  &:last-of-type {
+    float: right;
+  }
 }

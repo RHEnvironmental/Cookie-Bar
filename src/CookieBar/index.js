@@ -34,8 +34,8 @@ class CookieBar extends Component {
             <div className={css.cookiebar_container}>
                 <div className={globalStyles.container}>
                     <div className={globalStyles.col_8}>
-                        <h2 style={{color: this.props.primaryColor}}>Use of our cookies</h2>
-                        <p>We use necessary cookies to make our site work. We'd also like to set optional analytics cookies to help us improve it. We won't set optional cookies unless you enable them. Using this tool will set a cookie on your device to remember your preferences. <a href="#">Read More</a></p>
+                        <h2 style={{color: this.props.primaryColor, fontSize: 20}}><strong>Use of our cookies</strong></h2>
+                        <p>We use necessary cookies to make our site work. We'd also like to set optional analytics cookies to help us improve it. We won't set optional cookies unless you enable them. Using this tool will set a cookie on your device to remember your preferences.</p>
                     </div>
                     <div className={globalStyles.col_4}>
                         <div className={css.header_button_container}>
