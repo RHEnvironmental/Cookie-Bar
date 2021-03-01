@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+import Cookies from 'js-cookie';
 
 import Button from "../Button";
 import Modal from '../Modal';
@@ -15,7 +16,7 @@ class CookieBar extends Component {
         }
     }
 
-    _modal(){
+    _modal() {
         if(this.state.showModal){
             return <Modal primaryColor={this.props.primaryColor} toggleShowModal={() => this._toggleShowModal()} />
         }
@@ -23,10 +24,18 @@ class CookieBar extends Component {
         return null;
     }
 
-    _toggleShowModal(){
+    _toggleShowModal() {
         this.setState({
             showModal: !this.state.showModal
         });
+    }
+
+    _acceptAllCookies() {
+        const cookieConsent = JSON.parse(Cookies.get('cookie_consent'));
+
+        cookieConsent.acceptAll = true;
+
+        Cookies.set('cookie_consent', JSON.stringify(cookieConsent));
     }
 
     render() {
@@ -39,7 +48,7 @@ class CookieBar extends Component {
                     </div>
                     <div className={globalStyles.col_4}>
                         <div className={css.header_button_container}>
-                            <Button primaryColor={this.props.primaryColor} onClick={() => console.log('test')}>Accept All</Button><br />
+                            <Button primaryColor={this.props.primaryColor} onClick={this._acceptAllCookies}>Accept All</Button><br />
                             <Button primaryColor={this.props.primaryColor} inverted onClick={() => this._toggleShowModal()}>Manage Cookies</Button>
                         </div>
                     </div>
