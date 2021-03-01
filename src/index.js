@@ -10,6 +10,7 @@ class App extends Component {
         if(!Cookies.get('cookie_consent')) {
             let cookies = {
                 acceptAll: false,
+                customSettingsSaved: false,
                 categories: []
             }
 

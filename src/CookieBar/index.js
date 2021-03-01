@@ -18,7 +18,13 @@ class CookieBar extends Component {
 
     _modal() {
         if(this.state.showModal){
-            return <Modal primaryColor={this.props.primaryColor} toggleShowModal={() => this._toggleShowModal()} />
+            return (
+                <Modal
+                    acceptAllCookies={this._acceptAllCookies}
+                    primaryColor={this.props.primaryColor}
+                    toggleShowModal={() => this._toggleShowModal()}
+                />
+            )
         }
 
         return null;
@@ -39,6 +45,11 @@ class CookieBar extends Component {
     }
 
     render() {
+        const cookieConsent = JSON.parse(Cookies.get('cookie_consent'));
+
+        if(cookieConsent.acceptAll || cookieConsent.customSettingsSaved)
+            return null;
+
         return (
             <div className={css.cookiebar_container}>
                 <div className={globalStyles.container}>

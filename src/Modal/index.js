@@ -1,4 +1,5 @@
 import { h } from 'preact';
+import Cookies from 'js-cookie';
 
 import Button from '../Button';
 import CloseButton from "../CloseButton";
@@ -8,6 +9,27 @@ import DropdownItem from "../DropdownItem";
 import css from './styles.scss';
 
 const Modal = props => {
+    function rejectAllCookies() {
+        const cookieConsent = JSON.parse(Cookies.get('cookie_consent'));
+
+        cookieConsent.acceptAll = false;
+        cookieConsent.categories.forEach(cookieCategory => cookieCategory.accepted = false);
+
+        Cookies.set('cookie_consent', JSON.stringify(cookieConsent))
+
+        props.toggleShowModal();
+    }
+
+    function saveAndExit() {
+        const cookieConsent = JSON.parse(Cookies.get('cookie_consent'));
+
+        cookieConsent.customSettingsSaved = false;
+
+        Cookies.set('cookie_consent', JSON.stringify(cookieConsent))
+
+        props.toggleShowModal();
+    }
+
     return (
         <div className={css.modal_container}>
             <div className={css.modal_section}>
@@ -16,7 +38,10 @@ const Modal = props => {
             <div className={css.modal_section}>
                 <h2 style={{color: props.primaryColor}}>Our use of cookies</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus amet, nunc faucibus in leo, id at donec. Curabitur faucibus maecenas non, tortor. Parturient sapien tempor libero, consectetur. Ultricies odio egestas interdum ut etiam sollicitudin aliquam.</p>
-                <Button primaryColor={props.primaryColor}>Accept All</Button>
+                <Button
+                    primaryColor={props.primaryColor}
+                    onClick={props.acceptAllCookies}
+                >Accept All</Button>
             </div>
             <div className={css.modal_section}>
                 <h2 style={{color: props.primaryColor}}>Manage Consent Preferences</h2>
@@ -34,8 +59,8 @@ const Modal = props => {
             </div>
             <div className={css.modal_section}>
                 <div className={css.footer_buttons_container}>
-                    <Button cancel>Reject All</Button>
-                    <Button primaryColor={props.primaryColor}>Save and Exit</Button>
+                    <Button cancel onClick={rejectAllCookies}>Reject All</Button>
+                    <Button primaryColor={props.primaryColor} onClick={saveAndExit}>Save and Exit</Button>
                 </div>
             </div>
         </div>
