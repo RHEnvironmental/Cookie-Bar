@@ -7,7 +7,7 @@ import CookieBar from "./CookieBar";
 class App extends Component {
     componentDidMount() {
         // Check if consent cookie exists, create it if it hasn't
-        if(!Cookies.get('cookie_consent')) {
+        if(typeof Cookies.get('cookie_consent') === 'undefined') {
             let cookies = {
                 acceptAll: false,
                 customSettingsSaved: false,

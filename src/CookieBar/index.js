@@ -12,7 +12,20 @@ class CookieBar extends Component {
         super();
 
         this.state = {
-            showModal: false
+            showModal: false,
+            hideCookieBar: false
+        }
+    }
+
+    componentDidMount() {
+        if (typeof Cookies.get('cookie_consent') !== 'undefined') {
+            const cookieConsent = JSON.parse(Cookies.get('cookie_consent'));
+
+            if (cookieConsent.acceptAll || cookieBar.customSettingsSaved) {
+                this.setState({
+                    hideCookieBar: true
+                });
+            }
         }
     }
 
@@ -42,13 +55,16 @@ class CookieBar extends Component {
         cookieConsent.acceptAll = true;
 
         Cookies.set('cookie_consent', JSON.stringify(cookieConsent));
+
+        this.setState({
+            hideCookieBar: true
+        })
     }
 
     render() {
-        const cookieConsent = JSON.parse(Cookies.get('cookie_consent'));
-
-        if(cookieConsent.acceptAll || cookieConsent.customSettingsSaved)
+        if (this.state.hideCookieBar) {
             return null;
+        }
 
         return (
             <div className={css.cookiebar_container}>
@@ -59,7 +75,7 @@ class CookieBar extends Component {
                     </div>
                     <div className={globalStyles.col_4}>
                         <div className={css.header_button_container}>
-                            <Button primaryColor={this.props.primaryColor} onClick={this._acceptAllCookies}>Accept All</Button><br />
+                            <Button primaryColor={this.props.primaryColor} onClick={this._acceptAllCookies.bind(this)}>Accept All</Button><br />
                             <Button primaryColor={this.props.primaryColor} inverted onClick={() => this._toggleShowModal()}>Manage Cookies</Button>
                         </div>
                     </div>
