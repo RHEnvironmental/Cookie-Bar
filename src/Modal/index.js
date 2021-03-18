@@ -12,7 +12,6 @@ const Modal = props => {
     function rejectAllCookies() {
         const cookieConsent = JSON.parse(Cookies.get('cookie_consent'));
 
-        cookieConsent.acceptAll = false;
         cookieConsent.categories.forEach(cookieCategory => cookieCategory.accepted = false);
 
         Cookies.set('cookie_consent', JSON.stringify(cookieConsent))

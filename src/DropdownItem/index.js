@@ -3,6 +3,8 @@ import Cookies from 'js-cookie';
 
 import Toggle from "../Toggle";
 
+import { cookieChange } from '../constants';
+
 import css from "./styles.scss";
 
 class DropdownItem extends Component {
@@ -39,6 +41,8 @@ class DropdownItem extends Component {
 
         categoryToUpdate.accepted = isChecked;
         Cookies.set('cookie_consent', JSON.stringify(this.state.cookieConsent));
+
+        document.dispatchEvent(cookieChange);
     }
 
     render() {

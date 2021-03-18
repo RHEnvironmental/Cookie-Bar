@@ -4,6 +4,8 @@ import Cookies from 'js-cookie';
 import Button from "../Button";
 import Modal from '../Modal';
 
+import {cookieChange} from '../constants';
+
 import css from './styles.scss';
 import globalStyles from '../../scss/global.scss';
 
@@ -21,7 +23,7 @@ class CookieBar extends Component {
         if (typeof Cookies.get('cookie_consent') !== 'undefined') {
             const cookieConsent = JSON.parse(Cookies.get('cookie_consent'));
 
-            if (cookieConsent.acceptAll || cookieBar.customSettingsSaved) {
+            if (cookieConsent.customSettingsSaved) {
                 this.setState({
                     hideCookieBar: true
                 });
@@ -52,13 +54,16 @@ class CookieBar extends Component {
     _acceptAllCookies() {
         const cookieConsent = JSON.parse(Cookies.get('cookie_consent'));
 
-        cookieConsent.acceptAll = true;
+        cookieConsent.categories.forEach(category => category.accepted = true);
+        cookieConsent.customSettingsSaved = true;
 
         Cookies.set('cookie_consent', JSON.stringify(cookieConsent));
 
         this.setState({
             hideCookieBar: true
-        })
+        });
+
+        document.dispatchEvent(cookieChange);
     }
 
     render() {
@@ -67,7 +72,7 @@ class CookieBar extends Component {
         }
 
         return (
-            <div className={css.cookiebar_container}>
+            <div id="cookiebar" className={css.cookiebar_container}>
                 <div className={globalStyles.container}>
                     <div className={globalStyles.col_8}>
                         <h2 style={{color: this.props.primaryColor, fontSize: 20}}><strong>Use of our cookies</strong></h2>

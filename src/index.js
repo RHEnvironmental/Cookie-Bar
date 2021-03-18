@@ -9,7 +9,6 @@ class App extends Component {
         // Check if consent cookie exists, create it if it hasn't
         if(typeof Cookies.get('cookie_consent') === 'undefined') {
             let cookies = {
-                acceptAll: false,
                 customSettingsSaved: false,
                 categories: []
             }
@@ -35,3 +34,15 @@ class App extends Component {
 }
 
 render(<App />, document.body);
+
+// module.exports = {
+//     testFunction: function(){
+//         console.log('this is a test function that I would like to export.');
+//     }
+// }
+
+// var exports=module.exports={};
+//
+// exports.testFunction = function(){
+//     return console.log('this is a test function that I would like to export.');
+// }
