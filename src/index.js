@@ -22,6 +22,23 @@ class App extends Component {
 
             Cookies.set('cookie_consent', JSON.stringify(cookies));
         }
+
+        // Not sure if this is the best place to put it but this is a polyfill for custom events for IE.
+        // My reasoning for putting it here is that it runs straight away when the package is loaded.
+        // Feel free to move it somewhere more appropriate (and then delete these comments)
+        (function () {
+
+            if ( typeof window.CustomEvent === "function" ) return false;
+
+            function CustomEvent ( event, params ) {
+                params = params || { bubbles: false, cancelable: false, detail: null };
+                var evt = document.createEvent( 'CustomEvent' );
+                evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+                return evt;
+            }
+
+            window.CustomEvent = CustomEvent;
+        })();
     }
 
     render() {
@@ -34,15 +51,3 @@ class App extends Component {
 }
 
 render(<App />, document.body);
-
-// module.exports = {
-//     testFunction: function(){
-//         console.log('this is a test function that I would like to export.');
-//     }
-// }
-
-// var exports=module.exports={};
-//
-// exports.testFunction = function(){
-//     return console.log('this is a test function that I would like to export.');
-// }
