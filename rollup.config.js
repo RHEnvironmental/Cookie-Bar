@@ -35,7 +35,10 @@ export default {
             modules: true,
             use: ['sass'],
         }),
-        browsersync({server: 'lib'}),
+        !production && browsersync({
+            files: false,
+            server: 'lib'
+        }),
         commonjs({extensions: ['.js']}), // converts commonjs to ES modules
         production && terser(), // minify, but only in production
     ]
