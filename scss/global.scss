@@ -1,9 +1,21 @@
+@import 'mixins';
+@import 'variables';
+
 .container{
   display: block;
-  width: 1200px;
+  width: 100%;
   margin: 0 auto;
   * {
     box-sizing: border-box;
+  }
+  @include breakpoint('small') {
+    width: $small-width;
+  }
+  @include breakpoint('medium') {
+    width: $medium-width;
+  }
+  @include breakpoint('large') {
+    width: $large-width;
   }
 }
 
@@ -14,13 +26,25 @@
 }
 
 .col_8{
-  width: 70%;
+  width: 100%;
+  @include breakpoint('small') {
+    width: 70%;
+  }
 }
 
 .col_4{
-  width: 30%;
+  width: 100%;
+  @include breakpoint('small') {
+    width: 30%;
+  }
 }
 
 .title{
   font: inherit;
+}
+
+.hidden_xs {
+  @include breakpoint('xsmall') {
+    display: none;
+  }
 }

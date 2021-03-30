@@ -30,36 +30,38 @@ const Modal = props => {
     }
 
     return (
-        <div className={css.modal_container}>
-            <div className={css.modal_section}>
-                <CloseButton toggleShowModal={props.toggleShowModal} primaryColor={props.primaryColor} />
-            </div>
-            <div className={css.modal_section}>
-                <h2 style={{color: props.primaryColor}}>Our use of cookies</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus amet, nunc faucibus in leo, id at donec. Curabitur faucibus maecenas non, tortor. Parturient sapien tempor libero, consectetur. Ultricies odio egestas interdum ut etiam sollicitudin aliquam.</p>
-                <Button
-                    primaryColor={props.primaryColor}
-                    onClick={props.acceptAllCookies}
-                >Accept All</Button>
-            </div>
-            <div className={css.modal_section}>
-                <h2 style={{color: props.primaryColor}}>Manage Consent Preferences</h2>
-                <DropdownContainer>
-                    {window.cookieBarSettings.cookies.map(cookie => (
-                        <DropdownItem
-                            primaryColor={props.primaryColor}
-                            categoryID={cookie.categoryID}
-                            category={cookie.category}
-                            categoryDescription={cookie.categoryDescription}
-                            categoryCookies={cookie.categoryCookies}
-                        />
-                    ))}
-                </DropdownContainer>
-            </div>
-            <div className={css.modal_section}>
-                <div className={css.footer_buttons_container}>
-                    <Button cancel onClick={rejectAllCookies}>Reject All</Button>
-                    <Button primaryColor={props.primaryColor} onClick={saveAndExit}>Save and Exit</Button>
+        <div className={css.modal_background}>
+            <div className={css.modal_container}>
+                <div className={css.modal_section}>
+                    <CloseButton toggleShowModal={props.toggleShowModal} primaryColor={props.primaryColor} />
+                </div>
+                <div className={css.modal_section}>
+                    <h2 style={{color: props.primaryColor}}>Our use of cookies</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus amet, nunc faucibus in leo, id at donec. Curabitur faucibus maecenas non, tortor. Parturient sapien tempor libero, consectetur. Ultricies odio egestas interdum ut etiam sollicitudin aliquam.</p>
+                    <Button
+                        primaryColor={props.primaryColor}
+                        onClick={props.acceptAllCookies}
+                    >Accept All</Button>
+                </div>
+                <div className={css.modal_section}>
+                    <h2 style={{color: props.primaryColor}}>Manage Consent Preferences</h2>
+                    <DropdownContainer>
+                        {window.cookieBarSettings.cookies.map(cookie => (
+                            <DropdownItem
+                                primaryColor={props.primaryColor}
+                                categoryID={cookie.categoryID}
+                                category={cookie.category}
+                                categoryDescription={cookie.categoryDescription}
+                                categoryCookies={cookie.categoryCookies}
+                            />
+                        ))}
+                    </DropdownContainer>
+                </div>
+                <div className={css.modal_section}>
+                    <div className={css.footer_buttons_container}>
+                        <Button cancel onClick={rejectAllCookies}>Reject All</Button>
+                        <Button primaryColor={props.primaryColor} onClick={saveAndExit}>Save and Exit</Button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -123,7 +123,7 @@ var CookieBar = /*#__PURE__*/function (_Component) {
         return null;
       }
 
-      return (0, _preact.h)("div", {
+      return (0, _preact.h)("div", null, (0, _preact.h)("div", {
         id: "cookiebar",
         className: _styles["default"].cookiebar_container
       }, (0, _preact.h)("div", {
@@ -142,13 +142,15 @@ var CookieBar = /*#__PURE__*/function (_Component) {
       }, (0, _preact.h)(_Button["default"], {
         primaryColor: this.props.primaryColor,
         onClick: this._acceptAllCookies.bind(this)
-      }, "Accept All"), (0, _preact.h)("br", null), (0, _preact.h)(_Button["default"], {
+      }, "Accept All"), (0, _preact.h)("br", {
+        className: _global["default"].hidden_xs
+      }), (0, _preact.h)(_Button["default"], {
         primaryColor: this.props.primaryColor,
         inverted: true,
         onClick: function onClick() {
           return _this3._toggleShowModal();
         }
-      }, "Manage Cookies")))), this._modal());
+      }, "Manage Cookies"))))), this._modal());
     }
   }]);
 

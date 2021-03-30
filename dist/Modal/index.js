@@ -43,6 +43,8 @@ var Modal = function Modal(props) {
   }
 
   return (0, _preact.h)("div", {
+    className: _styles["default"].modal_background
+  }, (0, _preact.h)("div", {
     className: _styles["default"].modal_container
   }, (0, _preact.h)("div", {
     className: _styles["default"].modal_section
@@ -82,7 +84,7 @@ var Modal = function Modal(props) {
   }, "Reject All"), (0, _preact.h)(_Button["default"], {
     primaryColor: props.primaryColor,
     onClick: saveAndExit
-  }, "Save and Exit"))));
+  }, "Save and Exit")))));
 };
 
 var _default = Modal;
