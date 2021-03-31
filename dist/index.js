@@ -10,6 +10,8 @@ require("core-js");
 
 var _CookieBar = _interopRequireDefault(require("./CookieBar"));
 
+var _features = require("./features");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -31,6 +33,12 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var initFeatures = function initFeatures() {
+  if (!localStorage.getItem('flags')) {
+    localStorage.setItem('flags', JSON.stringify(_features.features));
+  }
+};
 
 var App = /*#__PURE__*/function (_Component) {
   _inherits(App, _Component);
@@ -86,6 +94,7 @@ var App = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       var primaryColor = window.cookieBarSettings ? window.cookieBarSettings.primaryColor : '#2D5AB4';
+      initFeatures();
       return (0, _preact.h)(_CookieBar["default"], {
         primaryColor: primaryColor
       });

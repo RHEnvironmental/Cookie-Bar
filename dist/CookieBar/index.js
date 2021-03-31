@@ -15,6 +15,8 @@ var _Button = _interopRequireDefault(require("../Button"));
 
 var _Modal = _interopRequireDefault(require("../Modal"));
 
+var _Feature = _interopRequireDefault(require("../Feature"));
+
 var _constants = require("../constants");
 
 var _styles = _interopRequireDefault(require("./styles.scss"));
@@ -123,7 +125,9 @@ var CookieBar = /*#__PURE__*/function (_Component) {
         return null;
       }
 
-      return (0, _preact.h)("div", null, (0, _preact.h)("div", {
+      return (0, _preact.h)(_Feature["default"], {
+        name: "cookie-bar"
+      }, (0, _preact.h)("div", {
         id: "cookiebar",
         className: _styles["default"].cookiebar_container
       }, (0, _preact.h)("div", {

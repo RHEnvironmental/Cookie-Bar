@@ -4,6 +4,14 @@ import 'core-js';
 
 import CookieBar from "./CookieBar";
 
+import {features} from './features';
+
+const initFeatures = () => {
+    if (!localStorage.getItem('flags')) {
+        localStorage.setItem('flags', JSON.stringify(features));
+    }
+};
+
 class App extends Component {
     componentDidMount() {
         // Check if consent cookie exists, create it if it hasn't
@@ -43,6 +51,7 @@ class App extends Component {
 
     render() {
         const primaryColor = window.cookieBarSettings ? window.cookieBarSettings.primaryColor : '#2D5AB4';
+        initFeatures();
 
         return <CookieBar
             primaryColor={primaryColor}

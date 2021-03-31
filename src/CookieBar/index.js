@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 
 import Button from "../Button";
 import Modal from '../Modal';
+import Feature from "../Feature";
 
 import {cookieChange} from '../constants';
 
@@ -72,7 +73,7 @@ class CookieBar extends Component {
         }
 
         return (
-            <div>
+            <Feature name="cookie-bar">
                 <div id="cookiebar" className={css.cookiebar_container}>
                     <div className={globalStyles.container}>
                         <div className={globalStyles.col_8}>
@@ -88,7 +89,7 @@ class CookieBar extends Component {
                     </div>
                 </div>
                 {this._modal()}
-            </div>
+            </Feature>
         );
     }
 }
