@@ -36,7 +36,7 @@ class DropdownItem extends Component {
 
     _handleChange(e, categoryId) {
         let isChecked = e.target.checked;
-        // Do stuff here for cookie category being activated / de-activated.
+
         const categoryToUpdate = this.state.cookieConsent.categories.find(category => category.id === categoryId);
 
         categoryToUpdate.accepted = isChecked;
@@ -56,7 +56,7 @@ class DropdownItem extends Component {
                         <h3>{this.props.category}</h3>
                     </div>
                     <div className={css.category_toggle}>
-                        {this.props.categoryID === 1 ? (
+                        {this.props.categoryID === 'ESSENTIAL' ? (
                             <p className={css.always_active} style={{color: this.props.primaryColor}}>Always Active</p>
                         ) : (
                             <Toggle

@@ -22,11 +22,12 @@ const Modal = props => {
     function saveAndExit() {
         const cookieConsent = JSON.parse(Cookies.get('cookie_consent'));
 
-        cookieConsent.customSettingsSaved = false;
+        cookieConsent.customSettingsSaved = true;
 
         Cookies.set('cookie_consent', JSON.stringify(cookieConsent))
 
         props.toggleShowModal();
+        props.hideCookieBar();
     }
 
     return (

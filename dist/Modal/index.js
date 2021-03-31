@@ -35,11 +35,12 @@ var Modal = function Modal(props) {
 
   function saveAndExit() {
     var cookieConsent = JSON.parse(_jsCookie["default"].get('cookie_consent'));
-    cookieConsent.customSettingsSaved = false;
+    cookieConsent.customSettingsSaved = true;
 
     _jsCookie["default"].set('cookie_consent', JSON.stringify(cookieConsent));
 
     props.toggleShowModal();
+    props.hideCookieBar();
   }
 
   return (0, _preact.h)("div", {

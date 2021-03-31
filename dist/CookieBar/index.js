@@ -66,15 +66,22 @@ var CookieBar = /*#__PURE__*/function (_Component) {
   _createClass(CookieBar, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      this._hideCookieBar = this._hideCookieBar.bind(this);
+
       if (typeof _jsCookie["default"].get('cookie_consent') !== 'undefined') {
         var cookieConsent = JSON.parse(_jsCookie["default"].get('cookie_consent'));
 
         if (cookieConsent.customSettingsSaved) {
-          this.setState({
-            hideCookieBar: true
-          });
+          this._hideCookieBar();
         }
       }
+    }
+  }, {
+    key: "_hideCookieBar",
+    value: function _hideCookieBar() {
+      this.setState({
+        hideCookieBar: true
+      });
     }
   }, {
     key: "_modal",
@@ -87,7 +94,8 @@ var CookieBar = /*#__PURE__*/function (_Component) {
           primaryColor: this.props.primaryColor,
           toggleShowModal: function toggleShowModal() {
             return _this2._toggleShowModal();
-          }
+          },
+          hideCookieBar: this._hideCookieBar
         });
       }
 
@@ -111,9 +119,8 @@ var CookieBar = /*#__PURE__*/function (_Component) {
 
       _jsCookie["default"].set('cookie_consent', JSON.stringify(cookieConsent));
 
-      this.setState({
-        hideCookieBar: true
-      });
+      this._hideCookieBar();
+
       document.dispatchEvent(_constants.cookieChange);
     }
   }, {

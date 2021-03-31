@@ -82,8 +82,7 @@ var DropdownItem = /*#__PURE__*/function (_Component) {
   }, {
     key: "_handleChange",
     value: function _handleChange(e, categoryId) {
-      var isChecked = e.target.checked; // Do stuff here for cookie category being activated / de-activated.
-
+      var isChecked = e.target.checked;
       var categoryToUpdate = this.state.cookieConsent.categories.find(function (category) {
         return category.id === categoryId;
       });
@@ -112,7 +111,7 @@ var DropdownItem = /*#__PURE__*/function (_Component) {
         onClick: this._toggleShowItemContent.bind(this)
       }, (0, _preact.h)("h3", null, this.props.category)), (0, _preact.h)("div", {
         className: _styles["default"].category_toggle
-      }, this.props.categoryID === 1 ? (0, _preact.h)("p", {
+      }, this.props.categoryID === 'ESSENTIAL' ? (0, _preact.h)("p", {
         className: _styles["default"].always_active,
         style: {
           color: this.props.primaryColor

@@ -21,15 +21,21 @@ class CookieBar extends Component {
     }
 
     componentDidMount() {
+        this._hideCookieBar = this._hideCookieBar.bind(this);
+
         if (typeof Cookies.get('cookie_consent') !== 'undefined') {
             const cookieConsent = JSON.parse(Cookies.get('cookie_consent'));
 
             if (cookieConsent.customSettingsSaved) {
-                this.setState({
-                    hideCookieBar: true
-                });
+                this._hideCookieBar();
             }
         }
+    }
+
+    _hideCookieBar() {
+        this.setState({
+            hideCookieBar: true
+        });
     }
 
     _modal() {
@@ -39,6 +45,7 @@ class CookieBar extends Component {
                     acceptAllCookies={this._acceptAllCookies}
                     primaryColor={this.props.primaryColor}
                     toggleShowModal={() => this._toggleShowModal()}
+                    hideCookieBar={this._hideCookieBar}
                 />
             )
         }
@@ -60,9 +67,7 @@ class CookieBar extends Component {
 
         Cookies.set('cookie_consent', JSON.stringify(cookieConsent));
 
-        this.setState({
-            hideCookieBar: true
-        });
+        this._hideCookieBar();
 
         document.dispatchEvent(cookieChange);
     }
