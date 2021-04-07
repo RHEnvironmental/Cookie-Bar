@@ -7,7 +7,7 @@ exports["default"] = void 0;
 
 var _preact = require("preact");
 
-var _styles = _interopRequireDefault(require("../Modal/styles.scss"));
+var _styles = _interopRequireDefault(require("./styles.scss"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 

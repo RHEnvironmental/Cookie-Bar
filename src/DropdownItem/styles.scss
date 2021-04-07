@@ -4,6 +4,7 @@ $triangleSize: 6px;
 
 .dropdown_item_title_container {
   display: flex;
+  padding: 4px $sectionPadding;
 }
 
 .arrow_container {
@@ -47,7 +48,7 @@ $triangleSize: 6px;
 .category_toggle {
   position: relative;
   flex: 1;
-  padding-top: 8px;
+  padding-top: 4px;
   p.always_active {
     font-weight: bold;
     text-align: right;
@@ -77,10 +78,11 @@ table.cookie_table {
   border-collapse: collapse;
   caption-side: bottom;
   th, td{
+    font-size: 15px;
     vertical-align: top;
     text-align: left;
     padding: 5px 10px 5px 0;
-    border-bottom: 1px solid #D2D2D2;
+    border-bottom: 1px solid $lightGrey;
     &:first-child {
       width: 20%;
     }

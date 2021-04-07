@@ -31,9 +31,15 @@
 
 .modal_section{
   padding: $sectionPadding;
-  border-bottom: 2px solid #D2D2D2;
+  border-bottom: 1px solid $lightGrey;
   overflow: hidden;
+
+  &.no_border {
+    border-bottom: none;
+  }
+
   h2 {
+    margin: 0;
     font: {
       size: 20px;
       weight: bold;

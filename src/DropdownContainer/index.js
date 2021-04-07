@@ -1,6 +1,6 @@
 import { h } from 'preact';
 
-import css from "../Modal/styles.scss";
+import css from "./styles.scss";
 
 const DropdownContainer = props => {
     return (

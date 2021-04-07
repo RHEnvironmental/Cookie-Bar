@@ -1,0 +1,16 @@
+@import '../../scss/variables';
+
+.dropdown_container {
+  margin: {
+    top: $sectionPadding;
+    right: -$sectionPadding;
+    bottom: 0;
+    left: -$sectionPadding;
+  }
+  & > div {
+    border-top: 1px solid $lightGrey;
+    &:last-child {
+      border-bottom: 1px solid $lightGrey;
+    }
+  }
+}

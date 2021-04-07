@@ -53,7 +53,7 @@ var Modal = function Modal(props) {
     toggleShowModal: props.toggleShowModal,
     primaryColor: props.primaryColor
   })), (0, _preact.h)("div", {
-    className: _styles["default"].modal_section
+    className: "".concat(_styles["default"].modal_section, " ").concat(_styles["default"].no_border)
   }, (0, _preact.h)("h2", {
     style: {
       color: props.primaryColor
@@ -64,7 +64,7 @@ var Modal = function Modal(props) {
     primaryColor: props.primaryColor,
     onClick: props.acceptAllCookies
   }, "Accept All")), (0, _preact.h)("div", {
-    className: _styles["default"].modal_section
+    className: "".concat(_styles["default"].modal_section, " ").concat(_styles["default"].no_border)
   }, (0, _preact.h)("h2", {
     style: {
       color: props.primaryColor
