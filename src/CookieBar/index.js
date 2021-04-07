@@ -23,7 +23,7 @@ class CookieBar extends Component {
     componentDidMount() {
         this._hideCookieBar = this._hideCookieBar.bind(this);
 
-        if (typeof Cookies.get('cookie_consent') !== 'undefined') {
+        if (!Cookies.get('cookie_consent')) {
             const cookieConsent = JSON.parse(Cookies.get('cookie_consent'));
 
             if (cookieConsent.customSettingsSaved) {
@@ -83,7 +83,7 @@ class CookieBar extends Component {
                     <div className={globalStyles.container}>
                         <div className={globalStyles.col_8}>
                             <h2 style={{color: this.props.primaryColor, fontSize: 20}}><strong>Use of our cookies</strong></h2>
-                            <p>We use necessary cookies to make our site work. We'd also like to set optional analytics cookies to help us improve it. We won't set optional cookies unless you enable them. Using this tool will set a cookie on your device to remember your preferences.</p>
+                            <p>{window.cookieBarSettings.introText} {window.cookieBarSettings.hasMoreInfo && <a href={window.cookieBarSettings.moreInfoUrl}>More Info</a>}</p>
                         </div>
                         <div className={globalStyles.col_4}>
                             <div className={css.header_button_container}>

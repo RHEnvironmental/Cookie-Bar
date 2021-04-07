@@ -55,7 +55,7 @@ var App = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       // Check if consent cookie exists, create it if it hasn't
-      if (typeof _jsCookie["default"].get('cookie_consent') === 'undefined') {
+      if (_jsCookie["default"].get('cookie_consent')) {
         var cookies = {
           customSettingsSaved: false,
           categories: []

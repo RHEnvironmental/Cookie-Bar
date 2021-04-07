@@ -68,7 +68,7 @@ var CookieBar = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       this._hideCookieBar = this._hideCookieBar.bind(this);
 
-      if (typeof _jsCookie["default"].get('cookie_consent') !== 'undefined') {
+      if (!_jsCookie["default"].get('cookie_consent')) {
         var cookieConsent = JSON.parse(_jsCookie["default"].get('cookie_consent'));
 
         if (cookieConsent.customSettingsSaved) {
@@ -146,7 +146,9 @@ var CookieBar = /*#__PURE__*/function (_Component) {
           color: this.props.primaryColor,
           fontSize: 20
         }
-      }, (0, _preact.h)("strong", null, "Use of our cookies")), (0, _preact.h)("p", null, "We use necessary cookies to make our site work. We'd also like to set optional analytics cookies to help us improve it. We won't set optional cookies unless you enable them. Using this tool will set a cookie on your device to remember your preferences.")), (0, _preact.h)("div", {
+      }, (0, _preact.h)("strong", null, "Use of our cookies")), (0, _preact.h)("p", null, window.cookieBarSettings.introText, " ", window.cookieBarSettings.hasMoreInfo && (0, _preact.h)("a", {
+        href: window.cookieBarSettings.moreInfoUrl
+      }, "More Info"))), (0, _preact.h)("div", {
         className: _global["default"].col_4
       }, (0, _preact.h)("div", {
         className: _styles["default"].header_button_container

@@ -38,7 +38,7 @@ const Modal = props => {
                 </div>
                 <div className={css.modal_section}>
                     <h2 style={{color: props.primaryColor}}>Our use of cookies</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus amet, nunc faucibus in leo, id at donec. Curabitur faucibus maecenas non, tortor. Parturient sapien tempor libero, consectetur. Ultricies odio egestas interdum ut etiam sollicitudin aliquam.</p>
+                    <p>{window.cookieBarSettings.introText} {window.cookieBarSettings.hasMoreInfo && <a href={window.cookieBarSettings.moreInfoUrl}>More Info</a>}</p>
                     <Button
                         primaryColor={props.primaryColor}
                         onClick={props.acceptAllCookies}

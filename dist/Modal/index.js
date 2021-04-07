@@ -58,7 +58,9 @@ var Modal = function Modal(props) {
     style: {
       color: props.primaryColor
     }
-  }, "Our use of cookies"), (0, _preact.h)("p", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus amet, nunc faucibus in leo, id at donec. Curabitur faucibus maecenas non, tortor. Parturient sapien tempor libero, consectetur. Ultricies odio egestas interdum ut etiam sollicitudin aliquam."), (0, _preact.h)(_Button["default"], {
+  }, "Our use of cookies"), (0, _preact.h)("p", null, window.cookieBarSettings.introText, " ", window.cookieBarSettings.hasMoreInfo && (0, _preact.h)("a", {
+    href: window.cookieBarSettings.moreInfoUrl
+  }, "More Info")), (0, _preact.h)(_Button["default"], {
     primaryColor: props.primaryColor,
     onClick: props.acceptAllCookies
   }, "Accept All")), (0, _preact.h)("div", {
