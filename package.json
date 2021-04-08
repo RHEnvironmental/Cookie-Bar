@@ -2,7 +2,7 @@
   "name": "rhe-cookie-bar",
   "version": "1.3.1",
   "description": "RHE Cookie bar package",
-  "main": "index.js",
+  "main": "lib/bundle.js",
   "scripts": {
     "build": "NODE_ENV=production rollup -c",
     "transpile": "babel src -d dist --copy-files",
