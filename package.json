@@ -1,6 +1,6 @@
 {
   "name": "rhe-cookie-bar",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "RHE Cookie bar package",
   "main": "lib/bundle.js",
   "scripts": {
