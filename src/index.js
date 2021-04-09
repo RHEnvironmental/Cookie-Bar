@@ -15,7 +15,7 @@ const initFeatures = () => {
 class App extends Component {
     componentDidMount() {
         // Check if consent cookie exists, create it if it hasn't
-        if(Cookies.get('cookie_consent')) {
+        if(!Cookies.get('cookie_consent')) {
             let cookies = {
                 customSettingsSaved: false,
                 categories: []

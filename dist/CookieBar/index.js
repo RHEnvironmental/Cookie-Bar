@@ -68,7 +68,7 @@ var CookieBar = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       this._hideCookieBar = this._hideCookieBar.bind(this);
 
-      if (!_jsCookie["default"].get('cookie_consent')) {
+      if (_jsCookie["default"].get('cookie_consent')) {
         var cookieConsent = JSON.parse(_jsCookie["default"].get('cookie_consent'));
 
         if (cookieConsent.customSettingsSaved) {

@@ -23,7 +23,7 @@ class CookieBar extends Component {
     componentDidMount() {
         this._hideCookieBar = this._hideCookieBar.bind(this);
 
-        if (!Cookies.get('cookie_consent')) {
+        if (Cookies.get('cookie_consent')) {
             const cookieConsent = JSON.parse(Cookies.get('cookie_consent'));
 
             if (cookieConsent.customSettingsSaved) {
