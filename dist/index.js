@@ -104,4 +104,4 @@ var App = /*#__PURE__*/function (_Component) {
   return App;
 }(_preact.Component);
 
-(0, _preact.render)((0, _preact.h)(App, null), document.body); // export default App;
+(0, _preact.render)((0, _preact.h)(App, null), document.body);

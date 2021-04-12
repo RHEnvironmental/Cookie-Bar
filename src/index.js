@@ -60,5 +60,3 @@ class App extends Component {
 }
 
 render(<App />, document.body);
-
-// export default App;

@@ -13,10 +13,12 @@ const Modal = props => {
         const cookieConsent = JSON.parse(Cookies.get('cookie_consent'));
 
         cookieConsent.categories.forEach(cookieCategory => cookieCategory.accepted = false);
+        cookieConsent.customSettingsSaved = true;
 
         Cookies.set('cookie_consent', JSON.stringify(cookieConsent))
 
         props.toggleShowModal();
+        props.hideCookieBar();
     }
 
     function saveAndExit() {

@@ -27,10 +27,12 @@ var Modal = function Modal(props) {
     cookieConsent.categories.forEach(function (cookieCategory) {
       return cookieCategory.accepted = false;
     });
+    cookieConsent.customSettingsSaved = true;
 
     _jsCookie["default"].set('cookie_consent', JSON.stringify(cookieConsent));
 
     props.toggleShowModal();
+    props.hideCookieBar();
   }
 
   function saveAndExit() {
