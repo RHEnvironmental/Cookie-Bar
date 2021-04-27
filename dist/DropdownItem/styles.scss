@@ -38,6 +38,7 @@ $triangleSize: 6px;
   h3{
     margin: $sectionPadding 0;
     line-height: 1;
+    border-bottom: none;
     font: {
       size: 15px;
       weight: bold;
@@ -77,12 +78,22 @@ table.cookie_table {
   width: 100%;
   border-collapse: collapse;
   caption-side: bottom;
+  background: none;
+  border: none;
   th, td{
-    font-size: 15px;
+    font: {
+      size: 15px;
+      weight: normal;
+    }
     vertical-align: top;
     text-align: left;
     padding: 5px 10px 5px 0;
-    border-bottom: 1px solid $lightGrey;
+    border: {
+      top: none !important;
+      right: none !important;
+      bottom: 1px solid $lightGrey;
+      left: none !important;
+    }
     &:first-child {
       width: 20%;
     }
