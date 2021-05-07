@@ -11,6 +11,7 @@
   left: 0;
   overflow-y: auto;
   background-color: rgba(0,0,0,0.25);
+  z-index: 1000;
 }
 
 .modal_container{
@@ -27,6 +28,13 @@
 
   h2{
     border-bottom: none;
+    &.modal_main_header{
+      margin: 0 0 12px 0;
+    }
+  }
+
+  p{
+    padding: 0;
   }
 
   @include breakpoint('small'){

@@ -42,7 +42,7 @@ class CookieBar extends Component {
         if(this.state.showModal){
             return (
                 <Modal
-                    acceptAllCookies={this._acceptAllCookies}
+                    acceptAllCookies={this._acceptAllCookies.bind(this)}
                     primaryColor={this.props.primaryColor}
                     toggleShowModal={() => this._toggleShowModal()}
                     hideCookieBar={this._hideCookieBar}

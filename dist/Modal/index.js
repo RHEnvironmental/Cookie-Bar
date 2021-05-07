@@ -57,6 +57,7 @@ var Modal = function Modal(props) {
   })), (0, _preact.h)("div", {
     className: "".concat(_styles["default"].modal_section, " ").concat(_styles["default"].no_border)
   }, (0, _preact.h)("h2", {
+    className: _styles["default"].modal_main_header,
     style: {
       color: props.primaryColor
     }

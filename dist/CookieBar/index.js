@@ -90,7 +90,7 @@ var CookieBar = /*#__PURE__*/function (_Component) {
 
       if (this.state.showModal) {
         return (0, _preact.h)(_Modal["default"], {
-          acceptAllCookies: this._acceptAllCookies,
+          acceptAllCookies: this._acceptAllCookies.bind(this),
           primaryColor: this.props.primaryColor,
           toggleShowModal: function toggleShowModal() {
             return _this2._toggleShowModal();

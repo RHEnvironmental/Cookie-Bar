@@ -39,7 +39,7 @@ const Modal = props => {
                     <CloseButton toggleShowModal={props.toggleShowModal} primaryColor={props.primaryColor} />
                 </div>
                 <div className={`${css.modal_section} ${css.no_border}`}>
-                    <h2 style={{color: props.primaryColor}}>Our use of cookies</h2>
+                    <h2 className={css.modal_main_header} style={{color: props.primaryColor}}>Our use of cookies</h2>
                     <p>{window.cookieBarSettings.introText} {window.cookieBarSettings.hasMoreInfo && <a href={window.cookieBarSettings.moreInfoUrl}>More Info</a>}</p>
                     <Button
                         primaryColor={props.primaryColor}
