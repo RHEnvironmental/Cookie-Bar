@@ -24,10 +24,7 @@ import {features} from './features';
 })();
 
 const initFeatures = () => {
-    console.log('init features');
     if (!localStorage.getItem('flags')) {
-        console.log('localstorage.getItem(flags) === false');
-        console.log('features: ', features);
         localStorage.setItem('flags', JSON.stringify(features));
     }
 };

@@ -55,11 +55,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 })();
 
 var initFeatures = function initFeatures() {
-  console.log('init features');
-
   if (!localStorage.getItem('flags')) {
-    console.log('localstorage.getItem(flags) === false');
-    console.log('features: ', _features.features);
     localStorage.setItem('flags', JSON.stringify(_features.features));
   }
 };
