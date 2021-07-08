@@ -27,8 +27,17 @@ export default {
             ]
         }),
         babel({
+            // runtimeHelpers: true,
             exclude: 'node_modules/**',
-            presets: ['@babel/env', '@babel/preset-react']
+            presets: [
+                ['@babel/preset-env',
+                    {
+                        targets: '> 0.25%, not dead',
+                        useBuiltIns: 'entry',
+                        corejs: 3
+                    }
+                ], '@babel/preset-react'
+            ]
         }),
         postcss({
             extract: false,
