@@ -17,9 +17,12 @@ var Toggle = function Toggle(props) {
   }, (0, _preact.h)("style", null, "                    input:checked + .".concat(_styles["default"].slider, " {                        background-color: ").concat(props.primaryColor, ";                    }                                        input:focus + .").concat(_styles["default"].slider, " {                        box-shadow: 0 0 1px ").concat(props.primaryColor, ";                    }                ")), (0, _preact.h)("label", {
     className: _styles["default"]["switch"]
   }, (0, _preact.h)("input", {
+    tabIndex: "0",
     type: "checkbox",
     checked: props.checked,
-    onChange: props.handleChange
+    "aria-checked": props.checked,
+    onChange: props.handleChange,
+    "aria-label": props.ariaLabel
   }), (0, _preact.h)("span", {
     className: _styles["default"].slider
   })));

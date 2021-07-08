@@ -2,11 +2,11 @@
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+require("core-js");
+
 var _preact = require("preact");
 
 var _jsCookie = _interopRequireDefault(require("js-cookie"));
-
-require("core-js");
 
 var _CookieBar = _interopRequireDefault(require("./CookieBar"));
 
@@ -34,8 +34,32 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+// Not sure if this is the best place to put it but this is a polyfill for custom events for IE.
+// My reasoning for putting it here is that it runs straight away when the package is loaded.
+// Feel free to move it somewhere more appropriate (and then delete these comments)
+(function () {
+  if (typeof window.CustomEvent === "function") return false;
+
+  function CustomEvent(event, params) {
+    params = params || {
+      bubbles: false,
+      cancelable: false,
+      detail: null
+    };
+    var evt = document.createEvent('CustomEvent');
+    evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+    return evt;
+  }
+
+  window.CustomEvent = CustomEvent;
+})();
+
 var initFeatures = function initFeatures() {
+  console.log('init features');
+
   if (!localStorage.getItem('flags')) {
+    console.log('localstorage.getItem(flags) === false');
+    console.log('features: ', _features.features);
     localStorage.setItem('flags', JSON.stringify(_features.features));
   }
 };
@@ -68,27 +92,7 @@ var App = /*#__PURE__*/function (_Component) {
         });
 
         _jsCookie["default"].set('cookie_consent', JSON.stringify(cookies));
-      } // Not sure if this is the best place to put it but this is a polyfill for custom events for IE.
-      // My reasoning for putting it here is that it runs straight away when the package is loaded.
-      // Feel free to move it somewhere more appropriate (and then delete these comments)
-
-
-      (function () {
-        if (typeof window.CustomEvent === "function") return false;
-
-        function CustomEvent(event, params) {
-          params = params || {
-            bubbles: false,
-            cancelable: false,
-            detail: null
-          };
-          var evt = document.createEvent('CustomEvent');
-          evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
-          return evt;
-        }
-
-        window.CustomEvent = CustomEvent;
-      })();
+      }
     }
   }, {
     key: "render",

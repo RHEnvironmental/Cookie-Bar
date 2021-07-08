@@ -17,9 +17,12 @@ const Toggle = props => {
             </style>
             <label className={css.switch}>
                 <input
+                    tabIndex="0"
                     type="checkbox"
                     checked={props.checked}
+                    aria-checked={props.checked}
                     onChange={props.handleChange}
+                    aria-label={props.ariaLabel}
                 />
                 <span className={css.slider}></span>
             </label>

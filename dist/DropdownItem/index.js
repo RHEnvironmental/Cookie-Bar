@@ -93,6 +93,18 @@ var DropdownItem = /*#__PURE__*/function (_Component) {
       document.dispatchEvent(_constants.cookieChange);
     }
   }, {
+    key: "_handleKeyDown",
+    value: function _handleKeyDown(e) {
+      var enterKey = 13;
+      var spaceKey = 32;
+
+      if (e.keyCode === enterKey || e.keyCode === spaceKey) {
+        e.preventDefault();
+
+        this._toggleShowItemContent();
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this3 = this;
@@ -108,7 +120,11 @@ var DropdownItem = /*#__PURE__*/function (_Component) {
         className: this.state.showItemContent ? "".concat(_styles["default"].arrow, " ").concat(_styles["default"].up) : "".concat(_styles["default"].arrow, " ").concat(_styles["default"].down)
       })), (0, _preact.h)("div", {
         className: _styles["default"].dropdown_item_title,
-        onClick: this._toggleShowItemContent.bind(this)
+        onClick: this._toggleShowItemContent.bind(this),
+        onKeyDown: this._handleKeyDown.bind(this),
+        role: "button",
+        tabIndex: "0",
+        "aria-label": "Toggle " + this.props.category + " info"
       }, (0, _preact.h)("h3", null, this.props.category)), (0, _preact.h)("div", {
         className: _styles["default"].category_toggle
       }, this.props.categoryID === 'ESSENTIAL' ? (0, _preact.h)("p", {
@@ -122,7 +138,8 @@ var DropdownItem = /*#__PURE__*/function (_Component) {
         primaryColor: this.props.primaryColor,
         handleChange: function handleChange(e) {
           return _this3._handleChange(e, _this3.props.categoryID);
-        }
+        },
+        ariaLabel: "Enable " + this.props.category
       }))), this.state.showItemContent && (0, _preact.h)("div", {
         className: _styles["default"].dropdown_item_content
       }, (0, _preact.h)("p", null, this.props.categoryDescription), (0, _preact.h)("table", {

@@ -7,8 +7,6 @@
     "build": "NODE_ENV=production rollup -c",
     "transpile": "babel src -d dist --copy-files",
     "watch": "rollup -c -w",
-    "dev": "npm-run-all --parallel start watch",
-    "start": "serve public",
     "add-description-message": "echo \"\\x1b[30m\\x1b[103mADD A DESCRIPTION TO THE NEW RELEASE ON GITHUB\\x1b[0m\"",
     "push:patch": "npm run transpile && npm run build && git add -A && git status -s && git commit -m 'Transpiled latest build. Built Latest Bundle' && npm version patch && git push origin --tags && git push && npm run add-description-message -s",
     "push:minor": "npm run transpile && npm run build && git add -A && git status -s && git commit -m 'Transpiled latest build. Built Latest Bundle' && npm version minor && git push origin --tags && git push && npm run add-description-message -s",
@@ -18,9 +16,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.12.10",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-transform-react-jsx": "^7.12.12",
-    "@babel/plugin-transform-runtime": "^7.0.0",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
     "@rollup/plugin-alias": "^3.1.1",
@@ -35,14 +31,12 @@
     "rollup": "^2.37.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-browsersync": "^1.3.1",
-    "rollup-plugin-buble": "^0.19.8",
     "rollup-plugin-postcss": "^3.0.0",
     "rollup-plugin-terser": "^5.3.1",
     "serve": "^11.2.0"
   },
   "dependencies": {
     "core-js": "^3.9.0",
-    "es6-shim": "^0.35.6",
     "js-cookie": "^2.2.1",
     "preact": "<10"
   }

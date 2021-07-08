@@ -45,14 +45,32 @@ class DropdownItem extends Component {
         document.dispatchEvent(cookieChange);
     }
 
+    _handleKeyDown(e) {
+        const enterKey = 13;
+        const spaceKey = 32;
+
+        if (e.keyCode === enterKey || e.keyCode === spaceKey) {
+            e.preventDefault();
+            this._toggleShowItemContent();
+        }
+    }
+
     render() {
         return (
             <div className={css.dropdown_item}>
                 <div className={css.dropdown_item_title_container}>
-                    <div className={css.arrow_container} onClick={this._toggleShowItemContent.bind(this)}>
+                    <div className={css.arrow_container}
+                         onClick={this._toggleShowItemContent.bind(this)}
+                    >
                         <div className={this.state.showItemContent ? `${css.arrow} ${css.up}` : `${css.arrow} ${css.down}`}></div>
                     </div>
-                    <div className={css.dropdown_item_title} onClick={this._toggleShowItemContent.bind(this)}>
+                    <div className={css.dropdown_item_title}
+                         onClick={this._toggleShowItemContent.bind(this)}
+                         onKeyDown={this._handleKeyDown.bind(this)}
+                         role="button"
+                         tabIndex="0"
+                         aria-label={"Toggle " + this.props.category + " info"}
+                    >
                         <h3>{this.props.category}</h3>
                     </div>
                     <div className={css.category_toggle}>
@@ -64,6 +82,7 @@ class DropdownItem extends Component {
                                 checked={this.state.categoryAccepted}
                                 primaryColor={this.props.primaryColor}
                                 handleChange={e=> this._handleChange(e, this.props.categoryID)}
+                                ariaLabel={"Enable " + this.props.category}
                             />
                         )}
                     </div>

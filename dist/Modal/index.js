@@ -55,6 +55,8 @@ var Modal = function Modal(props) {
     toggleShowModal: props.toggleShowModal,
     primaryColor: props.primaryColor
   })), (0, _preact.h)("div", {
+    className: _styles["default"].modal_scroll
+  }, (0, _preact.h)("div", {
     className: "".concat(_styles["default"].modal_section, " ").concat(_styles["default"].no_border)
   }, (0, _preact.h)("h2", {
     className: _styles["default"].modal_main_header,
@@ -80,7 +82,7 @@ var Modal = function Modal(props) {
       categoryDescription: cookie.categoryDescription,
       categoryCookies: cookie.categoryCookies
     });
-  }))), (0, _preact.h)("div", {
+  })))), (0, _preact.h)("div", {
     className: _styles["default"].modal_section
   }, (0, _preact.h)("div", {
     className: _styles["default"].footer_buttons_container

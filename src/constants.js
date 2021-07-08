@@ -1,7 +1,12 @@
 import Cookies from 'js-cookie';
 
-export const cookieChange = new CustomEvent("consentCookieChange", {
-    detail: Cookies.get('cookie_consent'),
-    bubbles: true,
-    composed: true
-});
+let event = document.createEvent('CustomEvent')
+
+event.initCustomEvent(
+    'consentCookieChange',
+    true,
+    true,
+    Cookies.get('cookie_consent')
+);
+
+export const cookieChange = event;
