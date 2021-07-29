@@ -78,7 +78,7 @@ class CookieBar extends Component {
         }
 
         return (
-            <Feature name="cookie-bar">
+            <div>
                 <div id="cookiebar" className={css.cookiebar_container}>
                     <div className={globalStyles.container}>
                         <div className={globalStyles.col_8}>
@@ -94,7 +94,7 @@ class CookieBar extends Component {
                     </div>
                 </div>
                 {this._modal()}
-            </Feature>
+            </div>
         );
     }
 }

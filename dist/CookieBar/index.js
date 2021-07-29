@@ -132,9 +132,7 @@ var CookieBar = /*#__PURE__*/function (_Component) {
         return null;
       }
 
-      return (0, _preact.h)(_Feature["default"], {
-        name: "cookie-bar"
-      }, (0, _preact.h)("div", {
+      return (0, _preact.h)("div", null, (0, _preact.h)("div", {
         id: "cookiebar",
         className: _styles["default"].cookiebar_container
       }, (0, _preact.h)("div", {
