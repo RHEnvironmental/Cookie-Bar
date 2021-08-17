@@ -114,18 +114,15 @@ var DropdownItem = /*#__PURE__*/function (_Component) {
       }, (0, _preact.h)("div", {
         className: _styles["default"].dropdown_item_title_container
       }, (0, _preact.h)("div", {
-        className: _styles["default"].arrow_container,
-        onClick: this._toggleShowItemContent.bind(this)
-      }, (0, _preact.h)("div", {
-        className: this.state.showItemContent ? "".concat(_styles["default"].arrow, " ").concat(_styles["default"].up) : "".concat(_styles["default"].arrow, " ").concat(_styles["default"].down)
-      })), (0, _preact.h)("div", {
         className: _styles["default"].dropdown_item_title,
         onClick: this._toggleShowItemContent.bind(this),
         onKeyDown: this._handleKeyDown.bind(this),
         role: "button",
         tabIndex: "0",
         "aria-label": "Toggle " + this.props.category + " info"
-      }, (0, _preact.h)("h3", null, this.props.category)), (0, _preact.h)("div", {
+      }, (0, _preact.h)("div", {
+        className: this.state.showItemContent ? "".concat(_styles["default"].arrow, " ").concat(_styles["default"].up) : "".concat(_styles["default"].arrow, " ").concat(_styles["default"].down)
+      }), (0, _preact.h)("h3", null, this.props.category)), (0, _preact.h)("div", {
         className: _styles["default"].category_toggle
       }, this.props.categoryID === 'ESSENTIAL' ? (0, _preact.h)("p", {
         className: _styles["default"].always_active,

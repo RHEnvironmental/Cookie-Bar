@@ -3,7 +3,6 @@ import Cookies from 'js-cookie';
 
 import Button from "../Button";
 import Modal from '../Modal';
-import Feature from "../Feature";
 
 import {cookieChange} from '../constants';
 
@@ -79,7 +78,7 @@ class CookieBar extends Component {
 
         return (
             <div>
-                <div id="cookiebar" className={css.cookiebar_container}>
+                <div id="cookiebar" className={css.cookiebar_container} style={{borderTop: `10px solid ${this.props.primaryColor}`}}>
                     <div className={globalStyles.container}>
                         <div className={globalStyles.col_8}>
                             <h2 style={{color: this.props.primaryColor, fontSize: 20}}><strong>Use of our cookies</strong></h2>
@@ -87,7 +86,7 @@ class CookieBar extends Component {
                         </div>
                         <div className={globalStyles.col_4}>
                             <div className={css.header_button_container}>
-                                <Button primaryColor={this.props.primaryColor} onClick={this._acceptAllCookies.bind(this)}>Accept All</Button><br className={globalStyles.hidden_xs} />
+                                <Button primaryColor={this.props.primaryColor} onClick={this._acceptAllCookies.bind(this)}>Accept All <span className={globalStyles.sr_only}>cookies</span> </Button><br className={globalStyles.hidden_xs} />
                                 <Button primaryColor={this.props.primaryColor} inverted onClick={() => this._toggleShowModal()}>Manage Cookies</Button>
                             </div>
                         </div>

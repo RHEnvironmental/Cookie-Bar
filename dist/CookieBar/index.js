@@ -15,8 +15,6 @@ var _Button = _interopRequireDefault(require("../Button"));
 
 var _Modal = _interopRequireDefault(require("../Modal"));
 
-var _Feature = _interopRequireDefault(require("../Feature"));
-
 var _constants = require("../constants");
 
 var _styles = _interopRequireDefault(require("./styles.scss"));
@@ -134,7 +132,10 @@ var CookieBar = /*#__PURE__*/function (_Component) {
 
       return (0, _preact.h)("div", null, (0, _preact.h)("div", {
         id: "cookiebar",
-        className: _styles["default"].cookiebar_container
+        className: _styles["default"].cookiebar_container,
+        style: {
+          borderTop: "10px solid ".concat(this.props.primaryColor)
+        }
       }, (0, _preact.h)("div", {
         className: _global["default"].container
       }, (0, _preact.h)("div", {
@@ -153,7 +154,9 @@ var CookieBar = /*#__PURE__*/function (_Component) {
       }, (0, _preact.h)(_Button["default"], {
         primaryColor: this.props.primaryColor,
         onClick: this._acceptAllCookies.bind(this)
-      }, "Accept All"), (0, _preact.h)("br", {
+      }, "Accept All ", (0, _preact.h)("span", {
+        className: _global["default"].sr_only
+      }, "cookies"), " "), (0, _preact.h)("br", {
         className: _global["default"].hidden_xs
       }), (0, _preact.h)(_Button["default"], {
         primaryColor: this.props.primaryColor,

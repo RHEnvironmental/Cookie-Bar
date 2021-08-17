@@ -59,11 +59,6 @@ class DropdownItem extends Component {
         return (
             <div className={css.dropdown_item}>
                 <div className={css.dropdown_item_title_container}>
-                    <div className={css.arrow_container}
-                         onClick={this._toggleShowItemContent.bind(this)}
-                    >
-                        <div className={this.state.showItemContent ? `${css.arrow} ${css.up}` : `${css.arrow} ${css.down}`}></div>
-                    </div>
                     <div className={css.dropdown_item_title}
                          onClick={this._toggleShowItemContent.bind(this)}
                          onKeyDown={this._handleKeyDown.bind(this)}
@@ -71,6 +66,7 @@ class DropdownItem extends Component {
                          tabIndex="0"
                          aria-label={"Toggle " + this.props.category + " info"}
                     >
+                        <div className={this.state.showItemContent ? `${css.arrow} ${css.up}` : `${css.arrow} ${css.down}`}></div>
                         <h3>{this.props.category}</h3>
                     </div>
                     <div className={css.category_toggle}>

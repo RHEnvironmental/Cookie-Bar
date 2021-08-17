@@ -22,7 +22,7 @@ var CloseButton = function CloseButton(props) {
     }
   }, (0, _preact.h)("span", {
     className: _global["default"].sr_only
-  }, "Close cookie bar modal"), (0, _preact.h)("div", null), (0, _preact.h)("div", null));
+  }, "Close cookie bar modal"));
 };
 
 var _default = CloseButton;

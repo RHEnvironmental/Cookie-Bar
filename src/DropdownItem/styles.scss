@@ -3,32 +3,28 @@
 $triangleSize: 6px;
 
 .dropdown_item_title_container {
+  position: relative;
   display: flex;
   padding: 4px $sectionPadding;
 }
 
-.arrow_container {
-  position: relative;
-  width: 50px - $sectionPadding;
-  cursor: pointer;
-  .arrow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-left: -($sectionPadding / 2);
-    width: 0;
-    height: 0;
-    &.down {
-      border-left: $triangleSize solid transparent;
-      border-right: $triangleSize solid transparent;
-      border-top: $triangleSize solid #000;
-    }
-    &.up {
-      border-left: $triangleSize solid transparent;
-      border-right: $triangleSize solid transparent;
-      border-bottom: $triangleSize solid #000;
-    }
+.arrow {
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  transform: translateY(-50%);
+  margin-left: -($sectionPadding / 2);
+  width: 0;
+  height: 0;
+  &.down {
+    border-left: $triangleSize solid transparent;
+    border-right: $triangleSize solid transparent;
+    border-top: $triangleSize solid #000;
+  }
+  &.up {
+    border-left: $triangleSize solid transparent;
+    border-right: $triangleSize solid transparent;
+    border-bottom: $triangleSize solid #000;
   }
 }
 
@@ -39,6 +35,7 @@ $triangleSize: 6px;
     margin: $sectionPadding 0 !important;
     line-height: 1!important;
     border-bottom: none;
+    padding-left: 40px;
     font: {
       size: 15px !important;
       weight: bold !important;

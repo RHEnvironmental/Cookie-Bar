@@ -1,28 +1,30 @@
 .closeLine {
-  position: relative;
-  float: right;
+  position: absolute;
+  top: 12px;
+  right: 12px;
   padding: 6px;
   border: none;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
 
   &:hover {
     cursor: pointer;
   }
 
-  div {
+  &:before, &:after {
     position: absolute;
-    width: 30px;
+    content: '';
+    width: 22px;
     border-bottom: 2px solid #fff;
     top: 50%;
     left: 50%;
+  }
 
-    &:first-of-type {
-      transform: translate(-50%) rotate(45deg);
-    }
+  &:before {
+    transform: translate(-50%) rotate(45deg);
+  }
 
-    &:last-of-type {
-      transform: translate(-50%) rotate(- 45deg);
-    }
+  &:after {
+    transform: translate(-50%) rotate(-45deg);
   }
 }
