@@ -39,6 +39,7 @@ const Button = props => {
 
     return (
         <button
+            id={props.id}
             className={`${css.button} ${setClasses()}`}
             style={inlineStyles()}
             onClick={props.onClick}

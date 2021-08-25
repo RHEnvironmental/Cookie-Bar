@@ -5,7 +5,7 @@ import globalStyles from '../../scss/global.scss';
 
 const CloseButton = props => {
     return (
-        <button className={css.closeLine} onClick={props.toggleShowModal} style={{backgroundColor: props.primaryColor}}>
+        <button id={props.id} className={css.closeLine} onClick={props.toggleShowModal} style={{backgroundColor: props.primaryColor}}>
             <span className={globalStyles.sr_only}>Close cookie bar modal</span>
         </button>
     );

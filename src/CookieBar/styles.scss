@@ -17,11 +17,10 @@
 
 .header_button_container {
   padding-top: 10px;
-  float: left;
   button {
     margin-right: 12px;
   }
-  @include breakpoint('small') {
+  @include breakpoint(small) {
     float: right;
     button {
       margin-right: 0;

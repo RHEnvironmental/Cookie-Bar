@@ -15,6 +15,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 var CloseButton = function CloseButton(props) {
   return (0, _preact.h)("button", {
+    id: props.id,
     className: _styles["default"].closeLine,
     onClick: props.toggleShowModal,
     style: {

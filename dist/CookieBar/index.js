@@ -147,7 +147,9 @@ var CookieBar = /*#__PURE__*/function (_Component) {
         }
       }, (0, _preact.h)("strong", null, "Use of our cookies")), (0, _preact.h)("p", null, window.cookieBarSettings.introText, " ", window.cookieBarSettings.hasMoreInfo && (0, _preact.h)("a", {
         href: window.cookieBarSettings.moreInfoUrl
-      }, "More Info"))), (0, _preact.h)("div", {
+      }, "More Info ", (0, _preact.h)("span", {
+        className: _global["default"].sr_only
+      }, "about cookies")))), (0, _preact.h)("div", {
         className: _global["default"].col_4
       }, (0, _preact.h)("div", {
         className: _styles["default"].header_button_container
@@ -156,7 +158,7 @@ var CookieBar = /*#__PURE__*/function (_Component) {
         onClick: this._acceptAllCookies.bind(this)
       }, "Accept All ", (0, _preact.h)("span", {
         className: _global["default"].sr_only
-      }, "cookies"), " "), (0, _preact.h)("br", {
+      }, "\xA0 cookies"), " "), (0, _preact.h)("br", {
         className: _global["default"].hidden_xs
       }), (0, _preact.h)(_Button["default"], {
         primaryColor: this.props.primaryColor,

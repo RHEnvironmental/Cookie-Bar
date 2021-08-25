@@ -61,6 +61,7 @@ var Button = function Button(props) {
   };
 
   return (0, _preact.h)("button", {
+    id: props.id,
     className: "".concat(_styles["default"].button, " ").concat(setClasses()),
     style: inlineStyles(),
     onClick: props.onClick

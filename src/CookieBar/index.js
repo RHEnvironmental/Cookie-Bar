@@ -82,11 +82,11 @@ class CookieBar extends Component {
                     <div className={globalStyles.container}>
                         <div className={globalStyles.col_8}>
                             <h2 style={{color: this.props.primaryColor, fontSize: 20}}><strong>Use of our cookies</strong></h2>
-                            <p>{window.cookieBarSettings.introText} {window.cookieBarSettings.hasMoreInfo && <a href={window.cookieBarSettings.moreInfoUrl}>More Info</a>}</p>
+                            <p>{window.cookieBarSettings.introText} {window.cookieBarSettings.hasMoreInfo && <a href={window.cookieBarSettings.moreInfoUrl}>More Info <span className={globalStyles.sr_only}>about cookies</span></a>}</p>
                         </div>
                         <div className={globalStyles.col_4}>
                             <div className={css.header_button_container}>
-                                <Button primaryColor={this.props.primaryColor} onClick={this._acceptAllCookies.bind(this)}>Accept All <span className={globalStyles.sr_only}>cookies</span> </Button><br className={globalStyles.hidden_xs} />
+                                <Button primaryColor={this.props.primaryColor} onClick={this._acceptAllCookies.bind(this)}>Accept All <span className={globalStyles.sr_only}>&nbsp; cookies</span> </Button><br className={globalStyles.hidden_xs} />
                                 <Button primaryColor={this.props.primaryColor} inverted onClick={() => this._toggleShowModal()}>Manage Cookies</Button>
                             </div>
                         </div>

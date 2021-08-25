@@ -14,16 +14,17 @@
   z-index: 1000;
 }
 
-.modal_container{
+.modal_container {
   position: fixed;
-  top: 50%;
-  left:50%;
+  top: 12px;
+  left: 50%;
   width: 90%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   background-color: #fff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0 0 10px 10px;
   overflow: auto;
+  max-height: 600px;
 
   h2{
     border-bottom: none;
@@ -36,23 +37,32 @@
     padding: 0;
   }
 
-  @include breakpoint('small'){
+  @include breakpoint(small) {
+    width: 700px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @include breakpoint(medium) {
     width: 800px;
   }
 }
 
-.modal_scroll {
-  max-height: 680px;
-  overflow: auto;
-}
-
-.modal_section{
+.modal_section {
+  position: relative;
   padding: $sectionPadding;
   border-bottom: 1px solid $lightGrey;
   overflow: hidden;
 
   &.no_border {
     border-bottom: none;
+  }
+
+  &.modal_scroll {
+    @include breakpoint(small) {
+      max-height: 300px;
+      overflow: auto;
+    }
   }
 
   h2, h3 {
@@ -77,12 +87,14 @@
     font-size: 15px;
   }
 
-  &:first-child {
-    padding-right: 70px;
-  }
-
   &:last-child {
     border-bottom: none;
+  }
+
+  @include breakpoint(small) {
+    &:first-child {
+      padding-right: 70px;
+    }
   }
 }
 
