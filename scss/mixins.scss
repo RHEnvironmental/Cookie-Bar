@@ -1,6 +1,7 @@
 @import 'variables';
 
 $breakpoints: (
+        'xxsmall' : (max-width:  $xxsmall-width),
         'xsmall'  : (max-width:  $mobile-width),
         'small'   : (min-width:  $small-width),
         'medium'  : (min-width:  $medium-width),
