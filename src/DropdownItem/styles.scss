@@ -6,6 +6,10 @@ $triangleSize: 6px;
   position: relative;
   display: flex;
   padding: 4px $sectionPadding;
+
+  h3 {
+    color: #000000;
+  }
 }
 
 .arrow {
