@@ -149,7 +149,7 @@ var CookieBar = /*#__PURE__*/function (_Component) {
         href: window.cookieBarSettings.moreInfoUrl
       }, "More Info ", (0, _preact.h)("span", {
         className: _global["default"].sr_only
-      }, "about cookies")))), (0, _preact.h)("div", {
+      }, "\xA0 about cookies")))), (0, _preact.h)("div", {
         className: _global["default"].col_4
       }, (0, _preact.h)("div", {
         className: _styles["default"].header_button_container
