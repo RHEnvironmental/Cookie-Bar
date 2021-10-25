@@ -21,6 +21,8 @@ var _DropdownItem = _interopRequireDefault(require("../DropdownItem"));
 
 var _styles = _interopRequireDefault(require("./styles.scss"));
 
+var _global = _interopRequireDefault(require("../../scss/global.scss"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -154,7 +156,9 @@ var Modal = /*#__PURE__*/function (_Component) {
         primaryColor: this.props.primaryColor
       }), (0, _preact.h)("p", null, window.cookieBarSettings.introText, " ", window.cookieBarSettings.hasMoreInfo && (0, _preact.h)("a", {
         href: window.cookieBarSettings.moreInfoUrl
-      }, "More Info")), (0, _preact.h)(_Button["default"], {
+      }, "More Info ", (0, _preact.h)("span", {
+        className: _global["default"].sr_only
+      }, "\xA0 about cookies"))), (0, _preact.h)(_Button["default"], {
         primaryColor: this.props.primaryColor,
         onClick: this.props.acceptAllCookies
       }, "Accept All")), (0, _preact.h)("div", {

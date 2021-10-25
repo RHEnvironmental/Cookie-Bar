@@ -7,6 +7,7 @@ import DropdownContainer from "../DropdownContainer";
 import DropdownItem from "../DropdownItem";
 
 import css from './styles.scss';
+import globalStyles from "../../scss/global.scss";
 
 class Modal extends Component {
     componentDidMount() {
@@ -80,7 +81,7 @@ class Modal extends Component {
                     <div className={`${css.modal_section} ${css.no_border}`}>
                         <h2 id="modal-title" tabIndex="-1" className={css.modal_main_header} style={{color: this.props.primaryColor}}>Our use of cookies</h2>
                         <CloseButton id="modal-header-close-button" toggleShowModal={this.props.toggleShowModal} primaryColor={this.props.primaryColor} />
-                        <p>{window.cookieBarSettings.introText} {window.cookieBarSettings.hasMoreInfo && <a href={window.cookieBarSettings.moreInfoUrl}>More Info</a>}</p>
+                        <p>{window.cookieBarSettings.introText} {window.cookieBarSettings.hasMoreInfo && <a href={window.cookieBarSettings.moreInfoUrl}>More Info <span className={globalStyles.sr_only}>&nbsp; about cookies</span></a>}</p>
                         <Button
                             primaryColor={this.props.primaryColor}
                             onClick={this.props.acceptAllCookies}
