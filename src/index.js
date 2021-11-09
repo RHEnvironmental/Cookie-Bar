@@ -45,7 +45,7 @@ class App extends Component {
                 });
             });
 
-            Cookies.set('cookie_consent', JSON.stringify(cookies));
+            Cookies.set('cookie_consent', JSON.stringify(cookies), { expires: 365 });
         }
     }
 

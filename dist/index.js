@@ -87,7 +87,9 @@ var App = /*#__PURE__*/function (_Component) {
           });
         });
 
-        _jsCookie["default"].set('cookie_consent', JSON.stringify(cookies));
+        _jsCookie["default"].set('cookie_consent', JSON.stringify(cookies), {
+          expires: 365
+        });
       }
     }
   }, {

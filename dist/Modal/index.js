@@ -70,7 +70,9 @@ var Modal = /*#__PURE__*/function (_Component) {
       });
       cookieConsent.customSettingsSaved = true;
 
-      _jsCookie["default"].set('cookie_consent', JSON.stringify(cookieConsent));
+      _jsCookie["default"].set('cookie_consent', JSON.stringify(cookieConsent), {
+        expires: 365
+      });
 
       this.props.toggleShowModal();
       this.props.hideCookieBar();
@@ -81,7 +83,9 @@ var Modal = /*#__PURE__*/function (_Component) {
       var cookieConsent = JSON.parse(_jsCookie["default"].get('cookie_consent'));
       cookieConsent.customSettingsSaved = true;
 
-      _jsCookie["default"].set('cookie_consent', JSON.stringify(cookieConsent));
+      _jsCookie["default"].set('cookie_consent', JSON.stringify(cookieConsent), {
+        expires: 365
+      });
 
       this.props.toggleShowModal();
       this.props.hideCookieBar();

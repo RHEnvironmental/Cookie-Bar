@@ -40,7 +40,7 @@ class DropdownItem extends Component {
         const categoryToUpdate = this.state.cookieConsent.categories.find(category => category.id === categoryId);
 
         categoryToUpdate.accepted = isChecked;
-        Cookies.set('cookie_consent', JSON.stringify(this.state.cookieConsent));
+        Cookies.set('cookie_consent', JSON.stringify(this.state.cookieConsent), { expires: 365 });
 
         document.dispatchEvent(cookieChange);
     }

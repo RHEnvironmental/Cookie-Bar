@@ -115,7 +115,9 @@ var CookieBar = /*#__PURE__*/function (_Component) {
       });
       cookieConsent.customSettingsSaved = true;
 
-      _jsCookie["default"].set('cookie_consent', JSON.stringify(cookieConsent));
+      _jsCookie["default"].set('cookie_consent', JSON.stringify(cookieConsent), {
+        expires: 365
+      });
 
       this._hideCookieBar();
 

@@ -64,7 +64,7 @@ class CookieBar extends Component {
         cookieConsent.categories.forEach(category => category.accepted = true);
         cookieConsent.customSettingsSaved = true;
 
-        Cookies.set('cookie_consent', JSON.stringify(cookieConsent));
+        Cookies.set('cookie_consent', JSON.stringify(cookieConsent), { expires: 365 });
 
         this._hideCookieBar();
 

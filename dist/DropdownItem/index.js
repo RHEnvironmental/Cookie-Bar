@@ -88,7 +88,9 @@ var DropdownItem = /*#__PURE__*/function (_Component) {
       });
       categoryToUpdate.accepted = isChecked;
 
-      _jsCookie["default"].set('cookie_consent', JSON.stringify(this.state.cookieConsent));
+      _jsCookie["default"].set('cookie_consent', JSON.stringify(this.state.cookieConsent), {
+        expires: 365
+      });
 
       document.dispatchEvent(_constants.cookieChange);
     }

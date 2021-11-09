@@ -20,7 +20,7 @@ class Modal extends Component {
         cookieConsent.categories.forEach(cookieCategory => cookieCategory.accepted = false);
         cookieConsent.customSettingsSaved = true;
 
-        Cookies.set('cookie_consent', JSON.stringify(cookieConsent))
+        Cookies.set('cookie_consent', JSON.stringify(cookieConsent), { expires: 365 });
 
         this.props.toggleShowModal();
         this.props.hideCookieBar();
@@ -31,7 +31,7 @@ class Modal extends Component {
 
         cookieConsent.customSettingsSaved = true;
 
-        Cookies.set('cookie_consent', JSON.stringify(cookieConsent))
+        Cookies.set('cookie_consent', JSON.stringify(cookieConsent), { expires: 365 });
 
         this.props.toggleShowModal();
         this.props.hideCookieBar();
