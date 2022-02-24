@@ -158,7 +158,7 @@ var Modal = /*#__PURE__*/function (_Component) {
         id: "modal-header-close-button",
         toggleShowModal: this.props.toggleShowModal,
         primaryColor: this.props.primaryColor
-      }), (0, _preact.h)("p", null, window.cookieBarSettings.introText, " ", window.cookieBarSettings.hasMoreInfo && (0, _preact.h)("a", {
+      }), (0, _preact.h)("p", null, window.cookieBarSettings.modalIntroText, " ", window.cookieBarSettings.hasMoreInfo && (0, _preact.h)("a", {
         href: window.cookieBarSettings.moreInfoUrl
       }, "More Info ", (0, _preact.h)("span", {
         className: _global["default"].sr_only
