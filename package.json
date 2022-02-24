@@ -8,9 +8,9 @@
     "transpile": "babel src -d dist --copy-files",
     "watch": "rollup -c -w",
     "add-description-message": "echo \"\\x1b[30m\\x1b[103mADD A DESCRIPTION TO THE NEW RELEASE ON GITHUB\\x1b[0m\"",
-    "push:patch": "npm run transpile && npm run build && git add -A && git status -s && git commit -m 'Transpiled latest build. Built Latest Bundle' && npm version patch && git push origin --tags && git push && npm run add-description-message -s",
-    "push:minor": "npm run transpile && npm run build && git add -A && git status -s && git commit -m 'Transpiled latest build. Built Latest Bundle' && npm version minor && git push origin --tags && git push && npm run add-description-message -s",
-    "push:major": "npm run transpile && npm run build && git add -A && git status -s && git commit -m 'Transpiled latest build. Built Latest Bundle' && npm version major && git push origin --tags && git push && npm run add-description-message -s"
+    "push:patch": "git pull && npm run transpile && npm run build && git add -A && git status -s && git commit -m 'Transpiled latest build. Built Latest Bundle' && npm version patch && git push origin --tags && git push && npm run add-description-message -s",
+    "push:minor": "git pull && npm run transpile && npm run build && git add -A && git status -s && git commit -m 'Transpiled latest build. Built Latest Bundle' && npm version minor && git push origin --tags && git push && npm run add-description-message -s",
+    "push:major": "git pull && npm run transpile && npm run build && git add -A && git status -s && git commit -m 'Transpiled latest build. Built Latest Bundle' && npm version major && git push origin --tags && git push && npm run add-description-message -s"
   },
   "author": "RHE Global",
   "license": "ISC",
